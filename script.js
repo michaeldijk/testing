@@ -7,7 +7,7 @@ async function handleSubmit(event) {
 
     try {
         const recipeResults = await searchRecipe(searchQuery);
-        // console.log(recipeResults);
+        console.log(recipeResults);
         displayResults(recipeResults);
     } catch (err) {
         console.log(err);
@@ -17,7 +17,7 @@ async function handleSubmit(event) {
 
 
 async function searchRecipe(searchQuery) {
-    const endpoint = `http://www.recipepuppy.com/api/?q=${searchQuery}`;
+    const endpoint = `https://breakingbadapi.com/api/characters?name=${searchQuery}`;
     const response = await fetch(endpoint);
     if (!response.ok) {
         throw Error(response.statusText);
@@ -32,15 +32,14 @@ function displayResults(recipeResults) {
 
     for (let i = 0; i < recipeResults.length; i++) {
         // recipeResults.results.forEach(result => {
-        searchResults.insertAdjacentHTML(
+        searchResults.insertAdjacentHTML('beforeend',
             `<div class="col-10">
-    <h3>${title}</h3>
-    <p>${href}</p>
-    <p>${thumbnail}</p>
-    <p>${ingredients}</p>
-    </div>`);
+    <h3>${[i].name}</h3>
+    <p>${[i].nickname}</p>
+    <p>${[i].birthday}</p>
+    <p>${[i].category}</p>
+    </div>`)
     }
-
 }
 
 // Find search from field Recipe

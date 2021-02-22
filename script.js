@@ -34,10 +34,10 @@ function displayResults(recipeResults) {
         // recipeResults.results.forEach(result => {
         searchResults.insertAdjacentHTML('beforeend',
             `<div class="col-10">
-    <h3>${[i].name}</h3>
-    <p>${[i].nickname}</p>
-    <p>${[i].birthday}</p>
-    <p>${[i].category}</p>
+    <h3>${recipeResults[i].name}</h3>
+    <p>${recipeResults[i].nickname}</p>
+    <p>${recipeResults[i].birthday}</p>
+    <p>${recipeResults[i].category}</p>
     </div>`)
     }
 }

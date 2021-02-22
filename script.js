@@ -7,6 +7,7 @@ async function handleSubmit(event) {
 
     try {
         const recipeResults = await searchRecipe(searchQuery);
+        // console.log(recipeResults);
         displayResults(recipeResults);
     } catch (err) {
         console.log(err);

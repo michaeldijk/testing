@@ -1,0 +1,8 @@
+.main-row {
+    height: 100vh;
+}
+
+/* search field for recipe seeker / ingredient-seeker */
+.recipeSeeker {
+    text-align: center;
+}

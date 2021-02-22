@@ -33,11 +33,14 @@ function displayResults(recipeResults) {
     for (let i = 0; i < recipeResults.meals.length; i++) {
         // recipeResults.results.forEach(result => {
         searchResults.insertAdjacentHTML('beforeend',
-            `<div class="col-10">
-    <h3>${recipeResults.meals[i].strMeal}</h3>
-    <p>${recipeResults.meals[i].strInstructions}</p>
-    <p>${recipeResults.meals[i].strSource}</p>
-    </div>`)
+            `<div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="${recipeResults.meals[i].strMealThumb}" alt="Thumbnail">
+            <div class="card-body">
+              <h5 class="card-title">${recipeResults.meals[i].strMeal}</h5>
+              <p class="card-text">${recipeResults.meals[i].strInstructions.substring(0,250) + ' ...'}</p>
+              <a href="${recipeResults.meals[i].strSource}" class="btn btn-primary">See the full meal instructions</a>
+            </div>
+          </div>`)
     }
 }
 

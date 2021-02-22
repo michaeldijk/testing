@@ -17,7 +17,7 @@ async function handleSubmit(event) {
 
 
 async function searchRecipe(searchQuery) {
-    const endpoint = `https://breakingbadapi.com/api/characters?name=${searchQuery}`;
+    const endpoint = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`;
     const response = await fetch(endpoint);
     if (!response.ok) {
         throw Error(response.statusText);
@@ -30,14 +30,13 @@ function displayResults(recipeResults) {
     // reference linking to the div for showing the recipe results
     const searchResults = document.getElementById("searchResultsDisplay");
 
-    for (let i = 0; i < recipeResults.length; i++) {
+    for (let i = 0; i < recipeResults.meals.length; i++) {
         // recipeResults.results.forEach(result => {
         searchResults.insertAdjacentHTML('beforeend',
             `<div class="col-10">
-    <h3>${recipeResults[i].name}</h3>
-    <p>${recipeResults[i].nickname}</p>
-    <p>${recipeResults[i].birthday}</p>
-    <p>${recipeResults[i].category}</p>
+    <h3>${recipeResults.meals[i].strMeal}</h3>
+    <p>${recipeResults.meals[i].strInstructions}</p>
+    <p>${recipeResults.meals[i].strSource}</p>
     </div>`)
     }
 }
